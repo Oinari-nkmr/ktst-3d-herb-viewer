@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>生薬 3DGS 統合ビューア</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        background: #05070a;
+        color: #f5f5f5;
+      }
+
+      /* 全体レイアウト */
+      #layout {
+        display: flex;
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      /* 左：サイドバー（タイトル＋検索＋一覧） */
+      #sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .sidebar-title {
+        font-size: 20px;
+        font-weight: 600;
+        margin: 0;
+      }
+
+      .sidebar-help {
+        font-size: 12px;
+        color: #9ca3af;
+        margin: 0 0 4px;
+      }
+
+      #searchInput,
+      #tagFilter {
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+
+      /* 🔍 検索＆タグフィルタ（上部だけ） */
+      #searchBox {
+        flex: 0 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin-top: 4px;
+        margin-bottom: 4px;
+      }
+      #searchInput {
+        width: 100%;
+        padding: 4px 8px;
+        border-radius: 6px;
+        border: 1px solid #1f2937;
+        background: #020617;
+        color: #e5e7eb;
+        font-size: 12px;
+      }
+      #searchInput::placeholder {
+        color: #6b7280;
+      }
+      #tagFilter {
+        width: 100%;
+        padding: 4px 8px;
+        border-radius: 6px;
+        border: 1px solid #1f2937;
+        background: #020617;
+        color: #e5e7eb;
+        font-size: 12px;
+      }
+
+      /* 🧾 モデル一覧：残りの高さを全部使ってスクロール */
+      #modelList {
+        flex: 1 1 auto;
+        overflow-y: auto;
+      }
+
+      .model-card {
+        border-radius: 8px;
+        padding: 8px 10px;
+        background: #181b24;
+        cursor: pointer;
+        transition: background 0.15s, transform 0.1s, box-shadow 0.1s;
+        border: 1px solid transparent;
+        margin-bottom: 6px;
+      }
+      .model-card:hover {
+        background: #202432;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+      }
+      .model-card.active {
+        border-color: #3b82f6;
+        background: #1c2333;
+      }
+      .model-title {
+        font-size: 13px;
+        font-weight: 600;
+      }
+      .model-sub {
+        font-size: 11px;
+        color: #9ba3b4;
+        margin-top: 2px;
+      }
+      .model-tags {
+        margin-top: 4px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+      }
+      .tag {
+        font-size: 10px;
+        padding: 2px 6px;
+        border-radius: 999px;
+        background: #242a3a;
+        color: #c8d0ff;
+      }
+
+      /* 中央＋右をまとめるラッパ */
+      #viewerInfoWrapper {
+        display: flex;
+        min-width: 0;
+        height: 100vh;
+        flex: 1 1 auto;
+        background: #0f172a;
+      }
+
+      /* 中央：3Dビューエリア（幅可変） */
+      #viewer {
+        flex: 1 1 auto;
+        min-width: 320px;
+        position: relative;
+        background: #05070a;
+      }
+      #viewer canvas {
+        display: block;
+      }
+      #viewer-overlay {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        padding: 6px 10px;
+        background: rgba(0, 0, 0, 0.55);
+        border-radius: 8px;
+        font-size: 11px;
+        color: #e5e7eb;
+        z-index: 5;
+        pointer-events: none;
+      }
+      #viewer-overlay strong {
+        font-weight: 600;
+      }
+
+      /* 仕切りバー（ドラッグ対象） */
+      #splitter {
+        width: 6px;
+        cursor: col-resize;
+        background: #111827;
+      }
+
+      /* 右：情報パネル（初期は320px） */
+      #infoPanel {
+        flex: 0 0 320px;
+        max-width: 520px;
+        min-width: 260px;
+        background: #0f172a;
+        border-left: 1px solid #1e293b;
+        padding: 12px 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        overflow-y: auto;
+      }
+      #infoPanel h2 {
+        margin: 0;
+        font-size: 16px;
+      }
+      .latin {
+        font-style: normal;
+        font-size: 13px;
+        color: #94a3b8;
+      }
+      .latin-binomial {
+        font-style: italic;
+      }
+      .info-row {
+        font-size: 13px;
+        margin-top: 4px;
+      }
+      .info-label {
+        color: #64748b;
+      }
+      .info-body {
+        color: #e5e7eb;
+      }
+      #description {
+        font-size: 13px;
+        line-height: 1.5;
+        margin-top: 6px;
+      }
+      hr {
+        border: none;
+        border-top: 1px solid #1f2933;
+        margin: 8px 0;
+      }
+
+      #mediaGallery {
+        margin-top: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .media-item {
+        background: #020617;
+        border-radius: 8px;
+        padding: 6px;
+        border: 1px solid #1f2937;
+      }
+
+      .media-item img {
+        max-width: 100%;
+        display: block;
+        border-radius: 6px;
+      }
+
+      .media-caption {
+        margin-top: 4px;
+        font-size: 11px;
+        color: #9ca3af;
+      }
+
+
+
+      /* クイズ部分 */
+      #quiz {
+        margin-top: 6px;
+        font-size: 13px;
+      }
+      #quiz h3 {
+        margin: 0 0 4px;
+        font-size: 14px;
+      }
+      .quiz-question {
+        margin-bottom: 6px;
+      }
+      .quiz-options {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .quiz-option-btn {
+        text-align: left;
+        padding: 6px 8px;
+        border-radius: 6px;
+        border: 1px solid #334155;
+        background: #020617;
+        color: #e5e7eb;
+        cursor: pointer;
+        font-size: 13px;
+        transition: background 0.1s, border-color 0.1s, transform 0.05s;
+      }
+      .quiz-option-btn:hover {
+        background: #111827;
+        transform: translateY(-0.5px);
+      }
+      .quiz-option-btn.correct {
+        border-color: #22c55e;
+        background: #022c22;
+      }
+      .quiz-option-btn.incorrect {
+        border-color: #ef4444;
+        background: #2f1317;
+      }
+      #quiz-feedback {
+        margin-top: 4px;
+        font-size: 12px;
+      }
+
+      #footerNote {
+        margin-top: 4px;
+        font-size: 11px;
+        color: #64748b;
+      }
+
+      /* ドラッグ中はカーソル固定＆テキスト選択禁止 */
+      body.resizing * {
+        cursor: col-resize !important;
+        user-select: none;
+      }
+
+
+      /* ===========================
+         スマホ用レイアウト調整
+         =========================== */
+      @media (max-width: 900px) {
+        html,
+        body {
+          height: auto;
+        }
+
+      /* 全体は縦に積んで、ページ全体でスクロール */
+      #layout {
+        flex-direction: column;
+        height: auto;
+       }
+
+      /* 上：サイドバー（タイトル＋説明＋検索＋タグ＋リスト） */
+      #sidebar {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: none;
+        border-right: none;
+        border-bottom: 1px solid #111827;
+
+        padding: 8px 10px;
+        display: flex;
+        flex-direction: column;  /* ★ 縦一列に固定 */
+        gap: 6px;
+
+      /* サイドバー自体は高さ制限せず、ページ全体でスクロール */
+        max-height: none;
+        overflow: visible;
+      }
+
+      /* モデル一覧だけ、ちょっと高さを決めて内側スクロールにするなら（好み） */
+      #modelList {
+        max-height: 30vh;       /* ★ ここを削ればリストもページと一緒にスクロール */
+        overflow-y: auto;
+      }
+
+      /* 検索ボックスとタグ選択を少しコンパクトに */
+      #searchInput,
+      #tagFilter {
+        font-size: 13px;
+        padding: 4px 8px;
+        height: 32px;
+      }
+
+      /* 中央＋右を縦並びにして高さ拘束を外す */
+      #viewerInfoWrapper {
+        flex-direction: column;
+        height: auto;
+      }
+
+      /* 3Dビューは画面の 35〜40% くらい */
+      #viewer {
+        flex: 0 0 auto;
+        width: 100%;
+        min-width: auto;
+        height: 38vh;
+      }
+
+      /* 仕切りバーはスマホでは不要 */
+      #splitter {
+        display: none;
+      }
+
+      /* 情報パネルは高さ固定をやめて、全体スクロールに任せる */
+      #infoPanel {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 100%;
+        max-height: none;
+        height: auto;
+        overflow: visible;
+        border-left: none;
+        border-top: 1px solid #111827;
+        padding: 8px 12px 24px;
+      }
+    }
+
+  </style>
+
+    <!-- three.js / Spark をラズパイ上のファイルから読み込む -->
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "/js/three.module.js",
+          "three/addons/": "/js/addons/",
+          "@sparkjsdev/spark": "https://sparkjs.dev/releases/spark/0.1.10/spark.module.js"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="layout">
+      <!-- 左：モデル一覧 -->
+      <aside id="sidebar">
+          <h1 id="sidebar-title">生薬 3D 標本</h1>
+
+        <p id="sidebar-desc">
+          モデルを選択すると右側に情報が表示されます。
+        </p>
+
+      <!-- 検索ボックス -->
+        <input
+          id="searchInput"
+          type="text"
+          placeholder="名前・学名で検索..."
+          autocomplete="off"
+        />
+
+      <!-- タグフィルタ -->
+        <select id="tagFilter">
+          <option value="">すべてのタグ</option>
+      <!-- JS の initTagFilter が上書きします -->
+        </select>
+
+      <!-- モデル一覧 -->
+        <div id="modelList"></div>
+      </aside>
+
+
+
+      <!-- 中央〜右：3Dビュー + 仕切り + 情報パネル -->
+      <div id="viewerInfoWrapper">
+        <!-- 中央：3D ビューエリア -->
+        <main id="viewer">
+          <div id="viewer-overlay">
+            <div>
+              <strong>操作:</strong>
+              ドラッグ: 回転 / ホイール: ズーム / 右ドラッグ: 平行移動
+            </div>
+          </div>
+        </main>
+
+        <!-- ここがドラッグ用の仕切りバー -->
+        <div id="splitter"></div>
+
+        <!-- 右：情報パネル -->
+        <aside id="infoPanel">
+          <div>
+            <h2 id="info-title">モデルを選択してください</h2>
+            <div id="info-latin" class="latin"></div>
+            <div class="info-row">
+              <span class="info-label">基原植物：</span>
+              <span id="info-source" class="info-body">-</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">薬用部位：</span>
+              <span id="info-part" class="info-body">-</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">補足：</span>
+              <span id="info-extra" class="info-body">-</span>
+            </div>
+              <!-- ★ ここから「生薬の性状」ラベル＋本文 -->
+            <div class="info-row">
+            <span class="info-label">生薬の性状：</span>
+            </div>
+            <div id="description" class="info-body"></div>
+              <!-- ★ ここまでが viewer.js の model.description が入る場所 -->
+            <div id="mediaGallery"></div>
+            <div id="descriptionhelp">
+              生薬を左の一覧から選ぶと、ここに概要とクイズが表示されます。
+            </div>
+          </div>
+
+          <hr />
+
+          <section id="quiz">
+            <h3>クイズ</h3>
+            <div id="quiz-content">
+              <div class="quiz-question">
+                モデルを選択するとクイズが有効になります。
+              </div>
+            </div>
+            <div id="quiz-feedback"></div>
+          </section>
+
+          <div id="footerNote">
+            ※内容はデモ用です。実際の授業では、ここに成分・薬理・注意点なども載せられます。
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- ロジックはすべて viewer.js に切り出し -->
+    <script type="module" src="/js/viewer.js"></script>
+  </body>
+</html>

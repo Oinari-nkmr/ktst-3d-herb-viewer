@@ -1,0 +1,184 @@
+[
+  {
+    "id": "demo_butterfly",
+    "nameJa": "デモ：バタフライ",
+    "latinName": "（生薬ではなく Spark デモ）",
+    "sourcePlant": "-",
+    "part": "-",
+    "extra": "Spark の公式デモモデル。環境テスト用。",
+    "description": "Spark.js の公式バタフライモデルです。最初の接続テストや、学生の端末で GPU がきちんと動作しているかを確認する用途に利用できます。",
+    "fileUrl": "https://sparkjs.dev/assets/splats/butterfly.spz",
+    "tags": ["テスト", "GPUチェック"],
+    "quiz": {
+      "question": "このモデルの主な用途として適切なのはどれ？",
+      "options": [
+        "生薬の内部構造観察",
+        "3DGSモデルの配信とブラウザの動作確認",
+        "Sparkの説明",
+        "ただの趣味"
+      ],
+      "correctIndex": 1,
+      "explanation": "バタフライは環境テスト用のデモモデルです。"
+    }
+  },
+  {
+    "id": "gentiana_root",
+    "nameJa": "ゲンチアナ（リンドウ科）",
+    "latinName": "GENTIANAE RADIX",
+    "sourcePlantLatin": "Gentiana lutea",
+    "sourcePlantAuthor": "Linné",
+    "part": "根および根茎",
+    "extra": "実際のゲンチアナの標本から作成した 3DGS モデル。",
+    "description": "ほぼ円柱形を呈し，長さ10 ～ 50 cm，径 2 ～ 4 cmで，外面は暗褐色である．根茎は短く，細かい横じわがあり，その上端には芽及び葉の残基を付けることがある．根は深い縦じわがあり，ややねじれている．折面は黄褐色で，繊維性ではなく，形成層付近は暗褐色を帯びる．特異なにおいがあり，味は初め甘く，後に苦く残留性である",
+    "fileUrl": "/models/gentiana_8-1_point_cloud.compressed.ply",
+    "tags": ["苦味健胃薬", "太田胃散", "鑑定試験"],
+    "images": [
+      {
+        "type": "photo",
+        "src": "/img/herbs/gentiana_photo.jpg",
+        "caption": "地上部の写真"
+      },
+      {
+        "type": "structure",
+        "src": "/img/herbs/gentiopicroside.jpg",
+        "caption": "gentiopicrosideの構造式"
+      }
+    ],
+
+
+    "quiz": {
+      "question": "ゲンチアナの代表的な効能として正しいものはどれ？",
+      "options": ["鎮咳去痰", "健胃", "止瀉", "利尿"],
+      "correctIndex": 1,
+      "explanation": "ゲンチアナは苦味健胃薬として利用されます。"
+    }
+  },
+  {
+    "id": "daio_root",
+    "nameJa": "ダイオウ（タデ科）",
+    "latinName": "RHEI RHIZOMA",
+    "sourcePlantLatin": "Rheum palmatum",
+    "sourcePlantAuthor": "Linné",
+    "part": "根茎",
+    "extra": "実際のダイオウの標本から作成した 3DGS モデル。",
+    "description": "卵形，長卵形又は円柱形を呈し，しばしば横切又は縦割され，径4 ～ 10 cm，長さ5 ～ 15 cm である．皮層の大部分を除いたものでは，外面は平滑で，黄褐色 ～ 淡褐色を呈し，白色の細かい網目の模様が見られるものがあり，質は緻密で堅い．コルク層を付けているものでは，外面は暗褐色又は赤黒色を呈し，粗いしわがあり，質は粗くてもろい．破砕面は繊維性でない．横切面は灰褐色，淡灰褐色又は褐色で，黒褐色に白色及び淡褐色の入り組んだ複雑な模様がある．この模様は形成層の付近でしばしば放射状を呈し，また，髄では径1 ～ 3 mm の褐色の小円の中心から放射状に走るつむじ様の組織からなり，環状に並ぶか，又は不規則に散在している．特異なにおいがあり，味は僅かに渋くて苦い．かめば細かい砂をかむような感じがあり，唾液を黄色に染める",
+    "fileUrl": "/models/daio.ply",
+    "tags": ["瀉下剤", "大黄", "確認試験", "鑑定試験"],
+    "images": [
+      {
+        "type": "photo",
+        "src": "/img/herbs/daio_photo.jpg",
+        "caption": "地上部の写真"
+      },
+      {
+        "type": "structure",
+        "src": "/img/herbs/gentiopicroside.jpg",
+        "caption": "gentiopicrosideの構造式"
+      }
+    ],
+
+
+    "quiz": {
+      "question": "ダイオウの代表的な効能として正しいものはどれ？",
+      "options": ["瀉下", "健胃", "止瀉", "利尿"],
+      "correctIndex": 0,
+      "explanation": "ダイオウは瀉下薬として利用されます。"
+    }
+  },
+  {
+    "id": "toki_root",
+    "nameJa": "トウキ（セリ科）",
+    "latinName": "ANGELICA ACUTILOBAE RADIX",
+    "sourcePlantLatin": "Angelica acutiloba",
+    "sourcePlantAuthor": "Kitagawa",
+    "part": "根",
+    "extra": "実際のトウキの標本から作成した 3DGS モデル。",
+    "description": "太くて短い主根から多数の根を分枝して，ほぼ紡錘形を呈し，長さ10 ～ 25 cm，外面は暗褐色 ～ 赤褐色で，縦じわおよび横長に隆起した多数の細根の跡がある．根頭に僅かに葉鞘を残している．折面は暗褐色 ～ 黄褐色を呈し，平らである．特異なにおいがあり，味は僅かに甘く，後にやや辛い．",
+    "fileUrl": "/models/toki.ply",
+    "tags": ["婦人薬", "当帰", "鑑定試験"],
+    "images": [
+      {
+        "type": "photo",
+        "src": "/img/herbs/toki_photo.jpg",
+        "caption": "地上部の写真"
+      },
+      {
+        "type": "structure",
+        "src": "/img/herbs/gentiopicroside.jpg",
+        "caption": "gentiopicrosideの構造式"
+      }
+    ],
+
+
+    "quiz": {
+      "question": "トウキの代表的な含有成分として正しいものはどれ？",
+      "options": ["Z-ligustilide", "Sennnoside A", "Saikosaponin A", "Berberine"],
+      "correctIndex": 0,
+      "explanation": "Z-ligustilideはトウキ精油の主要成分です。"
+    }
+  },
+  {
+    "id": "botan_bark",
+    "nameJa": "ボタンピ（ボタン科）",
+    "latinName": "MOUTAN CORTEX",
+    "sourcePlantLatin": "Paeonia suffruticosa",
+    "sourcePlantAuthor": "Andrews",
+    "part": "根皮",
+    "extra": "実際のボタンピの標本から作成した 3DGS モデル。",
+    "description": "管状 ～ 半管状の皮片で，厚さ約0.5 cm，長さ5 ～ 8 cm，径0.8 ～ 1.5 cmである．外面は暗褐色 ～ 紫褐色で，横に長い小楕円形の側根の跡と縦じわがあり，内面は淡灰褐色 ～ 帯紫褐色を呈し，平らである．折面はきめが粗い．内面及び折面にはしばしば白色の結晶を付着する．特異なにおいがあり，味は僅かに辛くて苦い．",
+    "fileUrl": "/models/botanpi.ply",
+    "tags": ["駆瘀血薬", "牡丹皮", "鑑定試験"],
+    "images": [
+      {
+        "type": "photo",
+        "src": "/img/herbs/botanpi_photo.jpg",
+        "caption": "地上部の写真"
+      },
+      {
+        "type": "structure",
+        "src": "/img/herbs/gentiopicroside.jpg",
+        "caption": "gentiopicrosideの構造式"
+      }
+    ],
+
+
+    "quiz": {
+      "question": "ボタンピの指標成分Paenol（JP18）含有量の基準値は次のうちどれ？",
+      "options": ["9%以上", "3%以上", "0.9%以上", "0.5%以上"],
+      "correctIndex": 2,
+      "explanation": "Paenolの含有量の規定値は0.9%以上です。"
+    }
+  },
+  {
+    "id": "obaku_bark",
+    "nameJa": "オウバク（ミカン科）",
+    "latinName": "PHELLODENDRI CORTEX",
+    "sourcePlantLatin": "Phellodendron amurense",
+    "sourcePlantAuthor": "Ruprecht",
+    "part": "樹皮",
+    "extra": "実際のオウバクの標本から作成した 3DGS モデル。",
+    "description": "板状又は巻き込んだ半管状の皮片で，厚さ2 ～ 4 mmである．外面は灰黄褐色～灰褐色で，多数の皮目の跡があり，内面は黄色～暗黄褐色で，細かい縦線を認めるが平滑である．折面は繊維性で鮮黄色を呈する．弱いにおいがあり，味は極めて苦く，粘液性で，唾液を黄色に染める．",
+    "fileUrl": "/models/obaku.ply",
+    "tags": ["苦味健胃薬", "黄柏", "鑑定試験"],
+    "images": [
+      {
+        "type": "photo",
+        "src": "/img/herbs/obaku_photo.jpg",
+        "caption": "地上部の写真"
+      },
+      {
+        "type": "structure",
+        "src": "/img/herbs/gentiopicroside.jpg",
+        "caption": "gentiopicrosideの構造式"
+      }
+    ],
+
+
+    "quiz": {
+      "question": "オウバクと同じ科名の生薬は次のうち正しいものはどれ？",
+      "options": ["オウレン", "サンショウ", "センナ", "ケイヒ"],
+      "correctIndex": 1,
+      "explanation": "サンショウはミカン科の植物で薬用部位は果皮になります。"
+    }
+  }
+]
