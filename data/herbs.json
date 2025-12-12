@@ -35,7 +35,7 @@
     "images": [
       {
         "type": "photo",
-        "src": "/img/herbs/gentiana_photo.jpg",
+        "src": "/img/herbs/comingsoon.jpg",
         "caption": "地上部の写真"
       },
       {
@@ -72,8 +72,8 @@
       },
       {
         "type": "structure",
-        "src": "/img/herbs/gentiopicroside.jpg",
-        "caption": "gentiopicrosideの構造式"
+        "src": "/img/herbs/SennosideA.jpg",
+        "caption": "sennoside Aの構造式"
       }
     ],
 
@@ -104,8 +104,8 @@
       },
       {
         "type": "structure",
-        "src": "/img/herbs/gentiopicroside.jpg",
-        "caption": "gentiopicrosideの構造式"
+        "src": "/img/herbs/Z-ligustilide.jpg",
+        "caption": "Z-ligustilideの構造式"
       }
     ],
 
@@ -136,8 +136,8 @@
       },
       {
         "type": "structure",
-        "src": "/img/herbs/gentiopicroside.jpg",
-        "caption": "gentiopicrosideの構造式"
+        "src": "/img/herbs/paeonol.jpg",
+        "caption": "paeonolの構造式"
       }
     ],
 
@@ -168,8 +168,8 @@
       },
       {
         "type": "structure",
-        "src": "/img/herbs/gentiopicroside.jpg",
-        "caption": "gentiopicrosideの構造式"
+        "src": "/img/herbs/berberine.jpg",
+        "caption": "berberineの構造式"
       }
     ],
 
@@ -179,6 +179,102 @@
       "options": ["オウレン", "サンショウ", "センナ", "ケイヒ"],
       "correctIndex": 1,
       "explanation": "サンショウはミカン科の植物で薬用部位は果皮になります。"
+    }
+  },
+  {
+    "id": "lithospermum_root",
+    "nameJa": "シコン（ムラサキ科）",
+    "latinName": "LITHOSPERMI RADIX",
+    "sourcePlantLatin": "Lithospermum erythrorhizon",
+    "sourcePlantAuthor": "Siebold et Zuccarini",
+    "part": "根",
+    "extra": "実際のシコンの標本から作成した 3DGS モデル。",
+    "description": "やや細長い円錐形を呈し，しばしば分枝し，長さ 6 ～ 10 cm，径 0.5~1.5 cmである．外面は暗紫色を呈し，粗雑で薄く剥がれやすい．多くはねじれた深い縦溝があり，ときには木部まで達する．根頭には茎の残基を付けていることがある．折りやすく，折面は粒状で，裂け目が多い．横切面をルーペ視するとき，皮部の外側は暗紫色で，内側の淡褐色の部分は不規則な波状を呈し，木部は類黄色である．根頭部の中央はしばしば裂け目となり，その周辺は赤紫色を呈する．弱いにおいがあり，味は僅かに甘い．",
+    "fileUrl": "/models/shikon.ply",
+    "tags": ["紫根", "紫雲膏", "RADIX"],
+    "images": [
+      {
+        "type": "photo",
+        "src": "/img/herbs/shikon_photo.jpg",
+        "caption": "地上部の写真"
+      },
+      {
+        "type": "structure",
+        "src": "/img/herbs/shikonin.jpg",
+        "caption": "shikoninの構造式"
+      }
+    ],
+
+
+    "quiz": {
+      "question": "紫雲膏を草案した華岡青洲は何時代の医師か？",
+      "options": ["奈良", "平安", "江戸", "明治"],
+      "correctIndex": 2,
+      "explanation": "華岡青洲は江戸時代の医師です。"
+    }
+  },
+  {
+    "id": "Atractylodes_rhizome",
+    "nameJa": "ビャクジュツ（キク科）",
+    "latinName": "ATRACTYLODIS RHIZOMA",
+    "sourcePlantLatin": "Atractylodes japonica",
+    "sourcePlantAuthor": "Koidzumi ex Kitamura",
+    "part": "根茎",
+    "extra": "実際のビャクジュツの標本から作成した 3DGS モデル。",
+    "description": "1）和ビャクジュツ　周皮を除いたものは不整塊状又は不規則に屈曲した円柱状を呈し，長さ3 ～ 8 cm，径2 ～ 3 cmである．外面は淡灰黄色 ～ 淡黄白色で，ところどころ灰褐色である．周皮を付けているものは外面は灰褐色で，しばしば結節状に隆起し，粗いしわがある．折りにくく，折面は繊維性である．横切面には淡黄褐色 ～ 褐色の分泌物による細点がある．特異なにおいがあり，味は僅かに苦い．2）唐ビャクジュツ　不整に肥大した塊状を呈し，長さ4 ～ 8 cm，径2 ～ 5 cmで外面は灰黄色 ～ 暗褐色を呈し，ところどころにこぶ状の小突起がある．折りにくく，破砕面は淡褐色 ～ 暗褐色で，木部の繊維性が著しい．特異なにおいがあり，味は僅かに甘く，後に僅かに苦い．",
+    "fileUrl": "/models/byakujutsu.ply",
+    "tags": ["芳香性健胃薬", "Rhizoma", "鑑定試験", "利水", "白朮"],
+    "images": [
+      {
+        "type": "photo",
+        "src": "/img/herbs/byakujutsu_photo.jpg",
+        "caption": "地上部の写真"
+      },
+      {
+        "type": "structure",
+        "src": "/img/herbs/Atractylon.jpg",
+        "caption": "atractylonの構造式"
+      }
+    ],
+
+
+    "quiz": {
+      "question": "atractylonの生合成経路として正しいものはどれ？",
+      "options": ["シキミ酸", "アミノ酸", "イソプレノイド", "酢酸-マロン酸"],
+      "correctIndex": 2,
+      "explanation": "atractylonの生合成経路はイソプレノイド経路です。"
+    }
+  },
+  {
+    "id": "platycodon_root",
+    "nameJa": "キキョウ（キキョウ科）",
+    "latinName": "PLATYCODI RADIX",
+    "sourcePlantLatin": "Platycodon grandiflorus",
+    "sourcePlantAuthor": "A. De Candolle",
+    "part": "根",
+    "extra": "実際のキキョウの標本から作成した 3DGS モデル。",
+    "description": "不規則なやや細長い紡錘形 ～ 円錘形を呈し，しばしば分枝し，外面は灰褐色，淡褐色又は白色である．主根は長さ10 ～ 15 cm，径1 ～ 3 cmで，上端に茎を除いた跡がくぼみとなって残り，その付近に細かい横じわと縦溝があり，多少くびれている．根頭部を除く根の大部分には粗い縦じわ及び横溝があり，また皮目様の横線がある．質は堅いが折りやすい．折面は繊維性でなく，しばしば大きな隙間がある．横切面をルーペ視するとき，形成層の付近はしばしば褐色を帯びる．皮部の厚さは木部の径よりやや薄く，ほとんど白色で，ところどころに隙間があり，木部は白色～淡褐色を呈し，その組織は皮部よりもやや密である．僅かににおいがあり，味は初めなく，後にえぐくて苦い．",
+    "fileUrl": "/models/kikyo.ply",
+    "tags": ["鎮咳・去痰", "桔梗", "鑑定試験"],
+    "images": [
+      {
+        "type": "photo",
+        "src": "/img/herbs/kikyo_photo.jpg",
+        "caption": "地上部の写真"
+      },
+      {
+        "type": "structure",
+        "src": "/img/herbs/PlatycodinD.jpg",
+        "caption": "platycodin Dの構造式"
+      }
+    ],
+
+
+    "quiz": {
+      "question": "サポニンの確認試験として次のうち正しいものはどれ？",
+      "options": ["起泡試験", "塩化鉄（Ⅲ）による呈色試験", "バニリン塩酸試液による呈色試験", "ヨウ素試液による呈色試験"],
+      "correctIndex": 0,
+      "explanation": "サポニンの確認試験として起泡試験があります。"
     }
   }
 ]
