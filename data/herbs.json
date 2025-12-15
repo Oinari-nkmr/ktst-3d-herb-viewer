@@ -35,12 +35,12 @@
     "images": [
       {
         "type": "photo",
-        "src": "/img/herbs/comingsoon.jpg",
+        "src": "img/herbs/comingsoon.jpg",
         "caption": "地上部の写真"
       },
       {
         "type": "structure",
-        "src": "/img/herbs/gentiopicroside.jpg",
+        "src": "img/herbs/gentiopicroside.jpg",
         "caption": "gentiopicrosideの構造式"
       }
     ],
@@ -67,12 +67,12 @@
     "images": [
       {
         "type": "photo",
-        "src": "/img/herbs/daio_photo.jpg",
+        "src": "img/herbs/daio_photo.jpg",
         "caption": "地上部の写真"
       },
       {
         "type": "structure",
-        "src": "/img/herbs/SennosideA.jpg",
+        "src": "img/herbs/SennosideA.jpg",
         "caption": "sennoside Aの構造式"
       }
     ],
@@ -99,12 +99,12 @@
     "images": [
       {
         "type": "photo",
-        "src": "/img/herbs/toki_photo.jpg",
+        "src": "img/herbs/toki_photo.jpg",
         "caption": "地上部の写真"
       },
       {
         "type": "structure",
-        "src": "/img/herbs/Z-ligustilide.jpg",
+        "src": "img/herbs/Z-ligustilide.jpg",
         "caption": "Z-ligustilideの構造式"
       }
     ],
@@ -131,12 +131,12 @@
     "images": [
       {
         "type": "photo",
-        "src": "/img/herbs/botanpi_photo.jpg",
+        "src": "img/herbs/botanpi_photo.jpg",
         "caption": "地上部の写真"
       },
       {
         "type": "structure",
-        "src": "/img/herbs/paeonol.jpg",
+        "src": "img/herbs/paeonol.jpg",
         "caption": "paeonolの構造式"
       }
     ],
@@ -163,12 +163,12 @@
     "images": [
       {
         "type": "photo",
-        "src": "/img/herbs/obaku_photo.jpg",
+        "src": "img/herbs/obaku_photo.jpg",
         "caption": "地上部の写真"
       },
       {
         "type": "structure",
-        "src": "/img/herbs/berberine.jpg",
+        "src": "img/herbs/berberine.jpg",
         "caption": "berberineの構造式"
       }
     ],
@@ -195,12 +195,12 @@
     "images": [
       {
         "type": "photo",
-        "src": "/img/herbs/shikon_photo.jpg",
+        "src": "img/herbs/shikon_photo.jpg",
         "caption": "地上部の写真"
       },
       {
         "type": "structure",
-        "src": "/img/herbs/shikonin.jpg",
+        "src": "img/herbs/shikonin.jpg",
         "caption": "shikoninの構造式"
       }
     ],
@@ -227,12 +227,12 @@
     "images": [
       {
         "type": "photo",
-        "src": "/img/herbs/byakujutsu_photo.jpg",
+        "src": "img/herbs/byakujutsu_photo.jpg",
         "caption": "地上部の写真"
       },
       {
         "type": "structure",
-        "src": "/img/herbs/Atractylon.jpg",
+        "src": "img/herbs/Atractylon.jpg",
         "caption": "atractylonの構造式"
       }
     ],
@@ -259,12 +259,12 @@
     "images": [
       {
         "type": "photo",
-        "src": "/img/herbs/kikyo_photo.jpg",
+        "src": "img/herbs/kikyo_photo.jpg",
         "caption": "地上部の写真"
       },
       {
         "type": "structure",
-        "src": "/img/herbs/PlatycodinD.jpg",
+        "src": "img/herbs/PlatycodinD.jpg",
         "caption": "platycodin Dの構造式"
       }
     ],
