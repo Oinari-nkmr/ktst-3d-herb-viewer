@@ -382,7 +382,7 @@ function selectInitialModel() {
 
 async function loadModelsAndInit() {
   try {
-    const res = await fetch("/data/herbs.json");
+    const res = await fetch("data/herbs.json");
     if (!res.ok) {
       throw new Error("Failed to load herbs.json: " + res.status);
     }
