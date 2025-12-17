@@ -12,7 +12,7 @@
 
 ## デモ
 
-* **GitHub Pages:** [https://oinari-nkmr.github.io/ktst-3d-herb-viewer/](https://example.com)
+* **GitHub Pages:** [https://oinari-nkmr.github.io/ktst-3d-herb-viewer/](https://oinari-nkmr.github.io/ktst-3d-herb-viewer/)
 
 ---
 
